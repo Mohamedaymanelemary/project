@@ -131,4 +131,5 @@ def profilelink(id):
         return "page not found"
 
 
-app.run(debug=True)
+
+app.run()
