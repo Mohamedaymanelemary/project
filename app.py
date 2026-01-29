@@ -1,7 +1,7 @@
 from flask import Flask,request,render_template,redirect,make_response
 import sqlite3
 import json
-
+import os
 db= sqlite3.connect("contact.db")
 cur = db.cursor()
 cur.execute("CREATE table if not exists user(id INTEGER PRIMARY KEY AUTOINCREMENT,name text,email text,password text)")
@@ -130,6 +130,6 @@ def profilelink(id):
     else:
         return "page not found"
 
-
-
-app.run()
+if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
